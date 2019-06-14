@@ -1,0 +1,19 @@
+{
+  "name": "ww-insertion-sort",
+  "version": "1.0.0",
+  "description": "Insertion sort with web workers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omnajjar/ww-insertion-sort.git"
+  },
+  "author": "Osama Mohammad Najjar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omnajjar/ww-insertion-sort/issues"
+  },
+  "homepage": "https://github.com/omnajjar/ww-insertion-sort#readme"
+}
