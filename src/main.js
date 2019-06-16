@@ -1,6 +1,6 @@
 import {generateRandomIntNumberArray} from "./utils/math";
 import {domFind, domCreate, domOn, domAppend} from "./utils/dom";
-
+import Timer from "./utils/timer";
 import Worker from "./worker";
 import "./style/style.css";
 
@@ -22,3 +22,19 @@ domAppend(wrapper, domCreate("br"));
 domAppend(wrapper, btnSend);
 
 domAppend(domFind("#app"), wrapper);
+
+const timer = new Timer();
+timer.start();
+
+setTimeout(() => {
+  timer.pause();
+}, 2000);
+
+setTimeout(() => {
+  timer.resume();
+}, 3000);
+
+setTimeout(() => {
+  timer.stop();
+  console.log(timer.getDuration() / 1000);
+}, 6000);
