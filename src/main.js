@@ -163,7 +163,7 @@ function resetMessageCounters() {
 }
 
 function enableSorter() {
-  startButton.innertText = "Start";
+  startButton.innerText = "Start";
   startButton.disabled = false;
   arraySizeInput.disabled = false;
   intervalDurationInput.disabled = false;
