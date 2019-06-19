@@ -1,12 +1,11 @@
-const Timer = function() {
-  //locals
+export default function Timer() {
   let startTime, endTime, timeAccumulator;
 
-  const resetTimer = () => {
+  function resetTimer() {
     startTime = 0;
     endTime = 0;
     timeAccumulator = [];
-  };
+  }
 
   // set initial state
   resetTimer();
@@ -14,24 +13,22 @@ const Timer = function() {
   // expose
   return {
     reset: resetTimer,
-    start: () => {
+    start() {
       startTime = Date.now();
     },
-    stop: () => {
+    stop() {
       endTime = Date.now();
     },
-    pause: () => {
+    pause() {
       timeAccumulator.push(Date.now() - startTime);
       startTime = 0;
     },
-    resume: () => {
+    resume() {
       startTime = Date.now();
     },
-    getDuration: () => {
+    getDuration() {
       timeAccumulator.push(endTime - startTime);
       return timeAccumulator.reduce((durationsSum, duration) => durationsSum + duration, 0);
     }
   };
-};
-
-export default Timer;
+}

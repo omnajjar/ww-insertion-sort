@@ -4,17 +4,100 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="style.css" />
     <title>WW Insertion Sort</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="text/javascript" src="main.js"></script>
+    <div id="app">
+      <div class="container-fluid mt-5">
+        <div class="row content">
+          <div class="col-sm-2 "></div>
+          <div class="col-sm-8 ">
+            <div class="jumbotron text-center">
+              <h1>⚙ Web Worker Insertion Sort</h1>
+              <p class="lead mr-5 ml-5">
+                An implementation of insertion sort algorithm performed by Web Workers, which will also receive random
+                number each X a predefined interval in milliseconds.
+              </p>
+              <p class="lead">
+                We are expecting a stable sorting time average, with an array size of <strong>100K</strong> no matter
+                what the interval
+                <strong>X</strong>
+                is. So let's check together!
+              </p>
+              <p class="lead">
+                💡
+                <small>
+                  What is mesuremnt of a <strong>'Stable'</strong> message time processing, especially with different
+                  factors can have an effect on the processing time?! in this application we consider a time as an
+                  <strong>'Unstable'</strong> message processing time if it is longer than
+                  <strong>13 milliseconds. </strong></small
+                >
+                <a href="http://news.mit.edu/2014/in-the-blink-of-an-eye-0116" target="_blank">
+                  Why?? maybe this article can explain a bit maybe this article can explain a bit!</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2 "></div>
+          <div class="col-sm-8 ">
+            <div class="row">
+              <div class="col-sm-8">
+                <div id="configurationForm" class="form-group">
+                  <h2>Configuration panel</h2>
+                  <hr />
+                  <form>
+                    <label for="arraySizeInput">Array size</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="arraySizeInput"
+                      value="100000"
+                      placeholder="the size of the array which will be sorted"
+                    />
+                    <small class="form-text text-muted"></small>
+                    <label for="intervalInput">The Interval of adding number to the array</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="intervalInput"
+                      value="1"
+                      placeholder="interval in milliseconds"
+                    />
+                    <small class="form-text text-muted"></small>
+                    <br />
+                    <button id="startButton" class="btn btn-warning btn-block form-control" type="submit">Start</button>
+                  </form>
+                  <hr />
+                  <div id="feedbackBox"></div>
+                  <div id="reportBox"></div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <h2>Messages logs</h2>
+                <hr />
+                <div id="message-log-list" class="list-group message-list">
+                  <div class="log"></div>
+                </div>
+                <div class="logs-info mt-3 alert alert-light text-small">
+                  <p>
+                    Please note that there are 4 message types
+                    <strong>[ RESET, SET_DATA, START_SORT, DONE ]</strong> that will be <strong>always</strong> logged
+                    as they indicate the initilizing and termintaing of the sorting process. The rest of the messages
+                    will be logged if their <strong>processing time i > 13ms.</strong> otherwise they are considered as
+                    <strong>'real-time'</strong> message won't be logged
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 "></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.bundle.js"></script>
   </body>
 </html>

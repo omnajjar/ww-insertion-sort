@@ -1,19 +1,33 @@
-const domFind = selector => document.querySelector(selector);
+export function domFind(selector) {
+  return document.querySelector(selector);
+}
 
-const domCreate = (type, props = {}) => {
+export function domFindAll(selector) {
+  return document.querySelectorAll(selector);
+}
+
+export function domCreate(type, props = {}) {
   const el = document.createElement(type);
   Object.entries(props).forEach(prop => {
     el[prop[0]] = prop[1];
   });
   return el;
-};
+}
 
-const domOn = (el, event, cb) => {
+export function domOn(el, event, cb) {
   el.addEventListener(event, cb);
-};
+}
 
-const domAppend = (parent, child) => {
+export function domAppend(parent, child) {
   parent.append(child);
-};
+}
 
-export {domFind, domCreate, domOn, domAppend};
+export function domEmpty(element) {
+  element.innerHTML = "";
+}
+
+export function domAppendBefore(selector, child) {
+  const theAfterNode = domFind(selector);
+  const parentNode = theAfterNode.parentNode;
+  parentNode.insertBefore(child, theAfterNode);
+}

@@ -14,6 +14,7 @@ module.exports = {
   entry: "./src/main.js",
   output: {
     path: distDir,
+    filename: "[name].bundle.js",
     globalObject: "this"
   },
   devServer: {

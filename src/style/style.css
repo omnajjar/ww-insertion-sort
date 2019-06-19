@@ -1,5 +1,75 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   font-family: "Ubuntu", sans-serif;
+  box-sizing: border-box;
+  color: #c6d6d8;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: #d7e4e4;
+}
+
+hr {
+  background-color: #d7e4e4;
+}
+
+.message-list {
+  max-height: 300px;
+  overflow: auto;
+  padding-right: 20px;
+}
+.message-list::-webkit-scrollbar-track {
+  margin-bottom: 14px;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-track {
+  /* margin: 40px; */
+}
+
+.log-badge {
+  padding: 7px 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+}
+
+.alert-error {
+  background: #971a1a;
+}
+
+.btn-warning:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.interval-info,
+.stability-indicator {
+  margin-bottom: 10px;
+}
+.logs-info {
+  font-size: 11px;
+  margin: 0;
+  padding: 8px;
+}
+
+.logs-info p {
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
 }
