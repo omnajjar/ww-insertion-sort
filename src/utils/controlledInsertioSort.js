@@ -14,7 +14,7 @@ export default function ControlledInsertionSort(arr, cb) {
     const element = toBeSortedArr[index];
 
     for (let i = 0; i < sortedArr.length; i++) {
-      if (element < sortedArr[i]) {
+      if (element <= sortedArr[i]) {
         sortedArr.splice(i, 0, element);
         isFinished = sortedArr.length === toBeSortedArr.length;
         isFinished ? cb && cb() : index++;
