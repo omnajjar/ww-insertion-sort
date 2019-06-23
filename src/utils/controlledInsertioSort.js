@@ -1,3 +1,4 @@
+import {binarySearch} from "./binarySearch";
 export default function ControlledInsertionSort(arr, cb) {
   let toBeSortedArr = arr || [],
     sortedArr = [],
@@ -13,15 +14,13 @@ export default function ControlledInsertionSort(arr, cb) {
     if (isFinished) return;
     const element = toBeSortedArr[index];
 
-    for (let i = 0; i < sortedArr.length; i++) {
-      if (element <= sortedArr[i]) {
-        sortedArr.splice(i, 0, element);
-        isFinished = sortedArr.length === toBeSortedArr.length;
-        isFinished ? cb && cb() : index++;
-        return;
-      }
+    const {low, high} = binarySearch(sortedArr, element);
+    // the new element is the smallest in value
+    if (low === -1) {
+      sortedArr.splice(0, 0, element);
+    } else {
+      high === sortedArr.length ? sortedArr.push(element) : sortedArr.splice(high, 0, element);
     }
-    sortedArr.push(element);
     isFinished = sortedArr.length === toBeSortedArr.length;
     isFinished ? cb && cb() : index++;
     return;
